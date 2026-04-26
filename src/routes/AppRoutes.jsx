@@ -12,6 +12,7 @@ import MySalesPage from '../modules/profile/pages/MySalesPage.jsx';
 import ProfileSettingsPage from '../modules/profile/pages/ProfileSettingsPage.jsx';
 import LandingPage from '../modules/LandingPage/LandingPage.jsx';
 
+
 /* 🔒 ROTA PRIVADA */
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('@AcheAqui:token');
