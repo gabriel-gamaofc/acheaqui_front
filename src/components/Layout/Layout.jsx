@@ -14,7 +14,19 @@ export default function Layout() {
   const token = localStorage.getItem('@AcheAqui:token');
   const user = JSON.parse(localStorage.getItem('@AcheAqui:user') || 'null');
 
-  const isFullWidthPage = location.pathname.startsWith('/produto');
+  /* ===================================================== */
+  /* 🔥 CONTROLE DE LARGURA (CORRIGIDO)                    */
+  /* ===================================================== */
+
+  const fullWidthRoutes = ['/homepage', '/produto'];
+
+  const isFullWidthPage = fullWidthRoutes.some(route =>
+    location.pathname.startsWith(route)
+  );
+
+  /* ===================================================== */
+  /* ================== USER ============================= */
+  /* ===================================================== */
 
   const initials = useMemo(() => {
     const name = user?.name || 'Usuário';
@@ -44,7 +56,10 @@ export default function Layout() {
   return (
     <div className="app-shell">
 
-      {/* HEADER */}
+      {/* ===================================================== */}
+      {/* ================== HEADER ============================ */}
+      {/* ===================================================== */}
+
       <header className="topbar">
         <div className="topbar-inner">
 
@@ -56,7 +71,7 @@ export default function Layout() {
             </span>
           </Link>
 
-          {/*  MOBILE HEADER ACTIONS */}
+          {/* MOBILE ACTIONS */}
           <div className="mobile-header-actions">
 
             <button
@@ -103,7 +118,7 @@ export default function Layout() {
 
           </nav>
 
-          {/* DESKTOP */}
+          {/* DESKTOP ACTIONS */}
           <div className="header-actions">
 
             <button className="theme-toggle" onClick={toggleTheme}>
@@ -131,8 +146,11 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* MAIN */}
-      <main className={isFullWidthPage ? 'page-full' : 'page-container'}>
+      {/* ===================================================== */}
+      {/* ================== MAIN ============================== */}
+      {/* ===================================================== */}
+
+      <main className={`page-container ${isFullWidthPage ? 'full' : ''}`}>
         <Outlet />
       </main>
 
