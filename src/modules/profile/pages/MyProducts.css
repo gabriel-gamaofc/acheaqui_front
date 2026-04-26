@@ -1,0 +1,27 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.profile-product {
+  display: grid;
+  gap: 10px;
+}
+
+.profile-actions {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.profile-actions span {
+  color: var(--muted-strong);
+  font-weight: 700;
+}

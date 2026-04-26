@@ -1,0 +1,205 @@
+/* ===================================================== */
+/* ================== PAGE ============================== */
+/* ===================================================== */
+
+.home-page {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+/* ===================================================== */
+/* ================== CONTEÚDO ========================== */
+/* ===================================================== */
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* 🔥 CRÍTICO — evita overflow */
+.content-layout > * {
+  min-width: 0;
+}
+
+/* ===================================================== */
+/* ================== SIDEBAR =========================== */
+/* ===================================================== */
+
+.filters-column {
+  width: 100%;
+}
+
+/* ===================================================== */
+/* ================== PRODUTOS ========================== */
+/* ===================================================== */
+
+.products-area {
+  width: 100%;
+  min-width: 0;
+}
+
+/* GRID DE PRODUTOS */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ===================================================== */
+/* ================== HEADER ============================ */
+/* ===================================================== */
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-title h2 {
+  font-size: clamp(20px, 2vw, 24px);
+}
+
+.section-title span {
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+/* ===================================================== */
+/* ================== EMPTY ============================= */
+/* ===================================================== */
+
+.empty {
+  padding: 20px 0;
+  opacity: 0.7;
+  text-align: center;
+}
+
+/* ===================================================== */
+/* ================== SKELETON ========================== */
+/* ===================================================== */
+
+.skeleton-card {
+  height: 200px;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    90deg,
+    var(--surface),
+    color-mix(in srgb, var(--surface) 70%, var(--primary)),
+    var(--surface)
+  );
+
+  background-size: 200% 100%;
+  animation: skeleton 1.2s infinite;
+}
+
+@keyframes skeleton {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+/* ===================================================== */
+/* ================== DRAWER ============================ */
+/* ===================================================== */
+
+.filters-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filters-drawer-content {
+  width: 85%;
+  max-width: 320px;
+  height: 100%;
+
+  background: var(--surface);
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  overflow-y: auto;
+
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%) }
+  to { transform: translateX(0) }
+}
+
+.close-drawer {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* ===================================================== */
+/* ================== RESPONSIVO ======================== */
+/* ===================================================== */
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+
+  .content-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-column {
+    display: none;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+
+  .home-page {
+    padding: 16px 12px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* ===== MOBILE PEQUENO ===== */
+@media (max-width: 380px) {
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
