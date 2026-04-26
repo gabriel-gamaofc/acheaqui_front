@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import api from '../../../services/api.js';
 import ProductCard from '../../../components/ProductCard/ProductCard.jsx';
 import ProductFilters from '../../../components/Filters/ProductFilters.jsx';
-import SidebarFilters from '../../../components/Filters/SidearFilters.jsx';
+import SidebarFilters from '../../../components/Filters/SidebarFilters.jsx';
 import './HomePage.css';
 
 export default function HomePage() {
