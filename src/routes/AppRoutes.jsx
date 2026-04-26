@@ -10,7 +10,7 @@ import RegisterPage from '../modules/auth/pages/RegisterPage.jsx';
 import MyProductsPage from '../modules/profile/pages/MyProductsPage.jsx';
 import MySalesPage from '../modules/profile/pages/MySalesPage.jsx';
 import ProfileSettingsPage from '../modules/profile/pages/ProfileSettingsPage.jsx';
-import LandingPage from '../modules/LandingPage/LandingPage.jsx';
+import LandingPage from '../modules/testgPage/LandingPage.js';
 
 
 /* 🔒 ROTA PRIVADA */
