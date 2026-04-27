@@ -24,7 +24,7 @@ function PublicRoute({ children }) {
   return !token ? children : <Navigate to="/homepage" replace />;
 }
 
-/* 🔥 ROOT */
+/*  ROOT */
 function RootPage() {
   return <LandingPage />;
 }
