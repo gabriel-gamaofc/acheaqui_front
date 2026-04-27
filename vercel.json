@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/sitemap.xml",
-      "destination": "${VITE_API_URL}/sitemap.xml"
+       "destination": "https://acheaqui-back.onrender.com/api/sitemap.xml"
     },
     {
       "source": "/(.*)",
