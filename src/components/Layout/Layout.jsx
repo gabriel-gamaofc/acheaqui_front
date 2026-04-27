@@ -95,7 +95,7 @@ export default function Layout() {
 
             <NavLink to="/homepage" onClick={closeMenu}>Vitrine</NavLink>
 
-            {token && <NavLink to="/novo-produto" onClick={closeMenu}>Anunciar</NavLink>}
+             <NavLink to="/novo-produto" onClick={closeMenu}>Anunciar</NavLink>
             {token && <NavLink to="/meus-produtos" onClick={closeMenu}>Meus produtos</NavLink>}
             {token && <NavLink to="/minhas-vendas" onClick={closeMenu}>Minhas vendas</NavLink>}
             {token && <NavLink to="/perfil" onClick={closeMenu}>Perfil</NavLink>}

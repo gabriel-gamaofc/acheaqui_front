@@ -12,11 +12,10 @@ import MySalesPage from '../modules/profile/pages/MySalesPage.jsx';
 import ProfileSettingsPage from '../modules/profile/pages/ProfileSettingsPage.jsx';
 import LandingPage from '../modules/LandingPage/LandingPage.jsx';
 
-
 /* 🔒 ROTA PRIVADA */
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('@AcheAqui:token');
-  return token ? children : <Navigate to="/" replace />;
+  return token ? children : <Navigate to="/login" replace />;
 }
 
 /* 🔓 ROTA PÚBLICA (bloqueia logado) */
@@ -25,10 +24,9 @@ function PublicRoute({ children }) {
   return !token ? children : <Navigate to="/homepage" replace />;
 }
 
-/* 🔥 HOME INTELIGENTE */
-function RootRedirect() {
-  const token = localStorage.getItem('@AcheAqui:token');
-  return token ? <Navigate to="/homepage" replace /> : <LandingPage />;
+/* 🔥 ROOT */
+function RootPage() {
+  return <LandingPage />;
 }
 
 export default function AppRoutes() {
@@ -37,8 +35,8 @@ export default function AppRoutes() {
 
       <Route element={<Layout />}>
 
-        {/* 🔥 ROOT INTELIGENTE */}
-        <Route path="/" element={<RootRedirect />} />
+        {/* 🔥 LANDING (SEO PRINCIPAL) */}
+        <Route path="/" element={<RootPage />} />
 
         {/* 🔓 PUBLICAS */}
         <Route path="/login" element={
@@ -53,19 +51,12 @@ export default function AppRoutes() {
           </PublicRoute>
         } />
 
+        {/* 🔥 AGORA PÚBLICAS (SEO IMPORTANTE) */}
+        <Route path="/homepage" element={<HomePage />} />
+
+        <Route path="/produto/:id" element={<ProductDetailPage />} />
+
         {/* 🔒 PRIVADAS */}
-        <Route path="/homepage" element={
-          <PrivateRoute>
-            <HomePage />
-          </PrivateRoute>
-        } />
-
-        <Route path="/produto/:id" element={
-          <PrivateRoute>
-            <ProductDetailPage />
-          </PrivateRoute>
-        } />
-
         <Route path="/novo-produto" element={
           <PrivateRoute>
             <CreateProductPage />
